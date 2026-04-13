@@ -3,7 +3,7 @@ from constants import *
 
 class Node:
     def __init__(self, board, parent=None, move=None):
-        self.board = np.array(board)
+        self.board = board
         self.children = []
         self.parent = parent
         self.move = move
@@ -16,10 +16,6 @@ class Node:
         zero_pos = np.argwhere(self.board == 0)[0]
         self.zero_row = zero_pos[0]
         self.zero_col = zero_pos[1]
-
-    def createChild(self, board_after_move, move):
-        node = Node(board_after_move, self, move)
-        self.children[move] = node
 
     def getNeighbor(self, move):
         rows, cols = self.board.shape
