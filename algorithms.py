@@ -68,7 +68,7 @@ def dfs(board_to_solve, order='RLUD', max_depth=20):
             max_depth_stat = max_depth 
             continue
         
-        for move in order:
+        for move in reversed(order):
             child = current.getNeighbor(move)
 
             if child is None:
